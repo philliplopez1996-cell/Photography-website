@@ -111,12 +111,20 @@ ul { list-style: none; }
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: calc(var(--nav-h) + 4rem) 2rem 4rem;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  padding-top: var(--nav-h);
   position: relative;
 }
+.hero-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  width: 100%;
+}
+.hero-content { flex: 1; min-width: 0; }
 .hero-eyebrow {
   font-size: 0.75rem;
   font-weight: 500;
@@ -127,27 +135,71 @@ ul { list-style: none; }
 }
 .hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
   font-weight: 300;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   color: var(--text);
 }
 .hero-headline em {
   font-style: italic;
   color: var(--text-muted);
 }
-.hero-sub {
-  font-size: 1rem;
+.hero-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-style: italic;
+  font-weight: 300;
   color: var(--text-muted);
-  max-width: 42ch;
+  line-height: 1.7;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
   margin-bottom: 2.5rem;
+  max-width: 46ch;
 }
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+/* Hero photo column */
+.hero-photo {
+  flex: 0 0 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-photo-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  position: relative;
+}
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px dashed rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+
 .hero-scroll-indicator {
   position: absolute;
   bottom: 2.5rem;
@@ -375,7 +427,83 @@ ul { list-style: none; }
   margin-top: 0.5rem;
 }
 
+/* ── Collections ─────────────────────────────────────────────── */
+.collections-top {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 5rem 2rem 3.5rem;
+}
+.collections-top-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.collections-top h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.collections-desc {
+  color: var(--text-muted);
+  max-width: 52ch;
+}
+.collections-bottom {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3.5rem 2rem 6rem;
+}
+.collections-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.collection-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.collection-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+.collection-img-placeholder {
+  aspect-ratio: 1 / 1;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.collection-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+.collection-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+.collection-info p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
 /* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column-reverse; gap: 2.5rem; padding-top: 3rem; }
+  .hero-photo { flex: 0 0 auto; width: 100%; max-width: 340px; }
+  .collections-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 768px) {
   .bio-inner { grid-template-columns: 1fr; gap: 3rem; }
   .bio-image-placeholder { max-width: 280px; }
