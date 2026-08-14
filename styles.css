@@ -507,16 +507,65 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .collections-grid { grid-template-columns: 1fr; }
 }
+
 @media (max-width: 768px) {
-  .bio-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .bio-image-placeholder { max-width: 280px; }
-  .form-row { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item.wide { grid-column: span 1; }
-  .footer-inner { justify-content: center; text-align: center; }
+  /* Sections: generous mobile padding */
+  .gallery            { padding: 3.5rem 1.5rem; }
+  .bio                { padding: 4rem 1.5rem; }
+  .collections-top    { padding: 3.5rem 1.5rem 2.5rem; }
+  .collections-bottom { padding: 2.5rem 1.5rem 4rem; }
+  .contact            { padding: 4rem 1.5rem; }
+  .footer             { padding: 2rem 1.5rem; }
+
+  /* Nav: compact to prevent overflow */
+  .nav                { padding: 0 1.25rem; gap: 0.75rem; }
+  .nav-links          { gap: 1.5rem; }
+  .nav-links a        { font-size: 0.72rem; letter-spacing: 0.08em; }
+
+  /* Hero */
+  .hero-content       { padding: 4rem 1.5rem 2.5rem; }
+  .hero-quote         { font-size: 1.05rem; max-width: 100%; }
+
+  /* Bio: stack portrait above text */
+  .bio-inner          { grid-template-columns: 1fr; gap: 2.5rem; }
+  .bio-image-placeholder { max-width: 260px; }
+  .bio-text p         { max-width: 100%; }
+  .bio-socials        { flex-wrap: wrap; }
+
+  /* Form: stack name + email */
+  .form-row           { grid-template-columns: 1fr; }
+
+  /* Gallery */
+  .gallery-grid       { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.wide  { grid-column: span 1; }
+
+  /* Footer */
+  .footer-inner       { justify-content: center; text-align: center; }
 }
+
 @media (max-width: 480px) {
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item.tall { grid-row: span 1; }
-  .nav-links { gap: 1.25rem; }
+  /* Nav: very small screens */
+  .nav                { padding: 0 1rem; }
+  .nav-logo           { font-size: 1.1rem; }
+  .nav-links          { gap: 0.9rem; }
+  .nav-links a        { font-size: 0.65rem; letter-spacing: 0.05em; }
+  .minibar-inner      { padding: 0 1rem; }
+
+  /* Hero: full-bleed comfortable padding */
+  .hero-content       { padding: 3rem 1.25rem 2rem; }
+  .hero-cta           { flex-direction: column; }
+  .hero-cta .btn      { width: 100%; justify-content: center; }
+
+  /* Gallery: single column */
+  .gallery-grid       { grid-template-columns: 1fr; }
+  .gallery-item.tall  { grid-row: span 1; }
+
+  /* Collections */
+  .collections-grid   { gap: 1rem; }
+  .collection-info    { padding: 1.25rem; }
+
+  /* Form inputs: larger tap targets */
+  .form-group input,
+  .form-group textarea { padding: 0.9rem 1rem; font-size: 1rem; }
+  .btn                { padding: 0.9rem 1.5rem; }
 }
