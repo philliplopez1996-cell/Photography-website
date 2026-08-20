@@ -1,22 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 118">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 110" overflow="visible">
   <defs>
-    <linearGradient id="bolt-grad" x1="8" y1="22" x2="63" y2="115" gradientUnits="userSpaceOnUse">
-      <stop offset="0%"   stop-color="#ffd84e"/>
-      <stop offset="42%"  stop-color="#f5a200"/>
-      <stop offset="100%" stop-color="#c07800"/>
+    <linearGradient id="g" x1="2" y1="10" x2="70" y2="106" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#ffe05a"/>
+      <stop offset="38%"  stop-color="#f5a200"/>
+      <stop offset="100%" stop-color="#bf7800"/>
     </linearGradient>
   </defs>
-  <!-- Z-bolt silhouette -->
-  <polygon
-    points="8,44 70,22 59,48 25,68 52,68 63,114 38,80 20,80 18,48"
-    fill="url(#bolt-grad)"
+  <!--
+    Two-horn cap (left horn lower, right horn higher) + V-notch between them
+    then Z-diagonal down to middle step, then spike to bottom
+  -->
+  <path
+    d="M 2,46 L 18,24 L 36,40 L 80,10 L 67,38 L 27,60 L 57,60 L 70,106 L 46,80 L 22,80 L 20,48 Z"
+    fill="url(#g)"
   />
-  <!-- Lightning vein texture -->
-  <polyline points="36,26 30,54 41,54 34,78"
-    stroke="white" stroke-width="0.9" stroke-opacity="0.5"
+  <!-- Primary lightning vein -->
+  <polyline
+    points="30,28 25,52 38,52 33,74 45,104"
+    stroke="white" stroke-width="1.1" stroke-opacity="0.55"
     stroke-linejoin="round" fill="none"/>
-  <line x1="50" y1="30" x2="44" y2="58"
-    stroke="white" stroke-width="0.6" stroke-opacity="0.35"/>
-  <line x1="44" y1="63" x2="54" y2="102"
-    stroke="white" stroke-width="0.7" stroke-opacity="0.4"/>
+  <!-- Secondary veins -->
+  <line x1="50" y1="14" x2="65" y2="36" stroke="white" stroke-width="0.7" stroke-opacity="0.35"/>
+  <line x1="48" y1="62" x2="55" y2="88" stroke="white" stroke-width="0.7" stroke-opacity="0.38"/>
 </svg>
