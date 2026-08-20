@@ -26,7 +26,7 @@
   </div>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav" id="main-nav">
     <a href="#home" class="nav-logo">HiighPhill</a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
@@ -34,15 +34,31 @@
       <li><a href="#bio">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <button class="nav-overlay-close" id="nav-overlay-close" aria-label="Close menu">&#x2715;</button>
+    <nav class="overlay-nav">
+      <a href="#work"        class="overlay-link">Work</a>
+      <a href="#collections" class="overlay-link">Collections</a>
+      <a href="#bio"         class="overlay-link">About</a>
+      <a href="#contact"     class="overlay-link">Contact</a>
+    </nav>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <p class="hero-eyebrow">Photography</p>
-      <h1 class="hero-headline">Capturing light,<br /><em>one frame at a time.</em></h1>
-      <blockquote class="hero-quote">"Stay fearless, and live life in the moment, my dear friends."</blockquote>
-      <div class="hero-cta">
+      <p class="hero-eyebrow reveal">Photography</p>
+      <h1 class="hero-headline reveal" style="transition-delay:.12s">Capturing light,<br /><em>one frame at a time.</em></h1>
+      <blockquote class="hero-quote reveal" style="transition-delay:.22s">"Stay fearless, and live life in the moment, my dear friends."</blockquote>
+      <div class="hero-cta reveal" style="transition-delay:.32s">
         <a href="#work" class="btn btn-primary">View Work</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
@@ -52,31 +68,31 @@
     </div>
   </section>
 
-  <!-- GALLERY PLACEHOLDER -->
+  <!-- GALLERY -->
   <section class="gallery" id="work">
     <div class="gallery-grid">
-      <div class="gallery-item tall"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item wide"></div>
-      <div class="gallery-item"></div>
-      <div class="gallery-item tall"></div>
+      <div class="gallery-item tall reveal"></div>
+      <div class="gallery-item reveal" style="transition-delay:.08s"></div>
+      <div class="gallery-item reveal" style="transition-delay:.16s"></div>
+      <div class="gallery-item wide reveal" style="transition-delay:.08s"></div>
+      <div class="gallery-item reveal" style="transition-delay:.16s"></div>
+      <div class="gallery-item tall reveal" style="transition-delay:.24s"></div>
     </div>
-    <p class="gallery-note">Gallery images coming soon</p>
+    <p class="gallery-note reveal" style="transition-delay:.3s">Gallery images coming soon</p>
   </section>
 
   <!-- OPENSEA COLLECTIONS -->
   <section class="collections" id="collections">
     <div class="collections-top">
       <div class="collections-top-inner">
-        <p class="section-label">OpenSea</p>
-        <h2>Digital Collections</h2>
-        <p class="collections-desc">Three distinct projects where photography meets the digital frontier.</p>
+        <p class="section-label reveal">OpenSea</p>
+        <h2 class="reveal" style="transition-delay:.1s">Digital Collections</h2>
+        <p class="collections-desc reveal" style="transition-delay:.2s">Three distinct projects where photography meets the digital frontier.</p>
       </div>
     </div>
     <div class="collections-bottom">
       <div class="collections-grid">
-        <div class="collection-card">
+        <div class="collection-card reveal">
           <div class="collection-img-placeholder"></div>
           <div class="collection-info">
             <h3>HiighPhill</h3>
@@ -84,7 +100,7 @@
             <a href="https://opensea.io/collection/hiighphill" target="_blank" rel="noopener" class="btn btn-primary">View Collection</a>
           </div>
         </div>
-        <div class="collection-card">
+        <div class="collection-card reveal" style="transition-delay:.12s">
           <div class="collection-img-placeholder"></div>
           <div class="collection-info">
             <h3>Collection II</h3>
@@ -92,7 +108,7 @@
             <a href="https://opensea.io/hiighphill" target="_blank" rel="noopener" class="btn btn-outline">View on OpenSea</a>
           </div>
         </div>
-        <div class="collection-card">
+        <div class="collection-card reveal" style="transition-delay:.24s">
           <div class="collection-img-placeholder"></div>
           <div class="collection-info">
             <h3>Collection III</h3>
@@ -101,33 +117,34 @@
           </div>
         </div>
       </div>
+      <p class="collections-swipe-hint">Swipe to explore &rarr;</p>
     </div>
   </section>
 
   <!-- BIO -->
   <section class="bio" id="bio">
     <div class="bio-inner">
-      <div class="bio-image-wrap">
+      <div class="bio-image-wrap reveal">
         <div class="bio-image-placeholder"></div>
       </div>
       <div class="bio-text">
-        <p class="section-label">About</p>
-        <h2>Hello, I'm Felipe.</h2>
-        <p>
+        <p class="section-label reveal">About</p>
+        <h2 class="reveal" style="transition-delay:.1s">Hello, I'm Felipe.</h2>
+        <p class="reveal" style="transition-delay:.18s">
           I look through the lens to freeze fleeting seconds, turning them into a visual
           superpower that floods me with memories every time I look back.
         </p>
-        <p>
+        <p class="reveal" style="transition-delay:.26s">
           Specializing in the dynamic perspectives of drone photography, the immediacy of
           phone captures, and the precision of digital cameras, I translate the world as
           I experience it. My work also extends into the digital realm with three distinct
           projects on OpenSea.
         </p>
-        <p>
+        <p class="reveal" style="transition-delay:.34s">
           When I'm not behind the camera, I channel my passion for strategy and teamwork
           as a soccer coach.
         </p>
-        <div class="bio-socials">
+        <div class="bio-socials reveal" style="transition-delay:.42s">
           <a href="https://www.instagram.com/hiighphill.base.eth?utm_source=qr" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             Instagram
@@ -144,10 +161,10 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="contact-inner">
-      <p class="section-label">Contact</p>
-      <h2>Let's work together.</h2>
-      <p class="contact-sub">Available for commissions, editorial projects, and licensing inquiries.</p>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <p class="section-label reveal">Contact</p>
+      <h2 class="reveal" style="transition-delay:.1s">Let's work together.</h2>
+      <p class="contact-sub reveal" style="transition-delay:.18s">Available for commissions, editorial projects, and licensing inquiries.</p>
+      <form class="contact-form reveal" style="transition-delay:.28s" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
