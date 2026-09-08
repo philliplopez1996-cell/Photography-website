@@ -188,15 +188,14 @@ ul { list-style: none; }
 }
 .hero-quote {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
   font-style: italic;
   font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.7;
-  border-left: 2px solid var(--accent);
-  padding-left: 1.25rem;
-  margin-bottom: 2.5rem;
-  max-width: 46ch;
+  color: var(--text);
+  line-height: 1.2;
+  text-wrap: balance;
+  margin-bottom: 1.75rem;
+  max-width: 22ch;
 }
 .hero-cta {
   display: flex;
@@ -766,7 +765,7 @@ ul { list-style: none; }
 
   /* Hero */
   .hero-content       { padding: 4rem 1.5rem 2.5rem; }
-  .hero-quote         { font-size: 1.05rem; max-width: 100%; }
+  .hero-quote         { max-width: 100%; }
 
   /* Bio: stack portrait above text */
   .bio-inner          { grid-template-columns: 1fr; gap: 2.5rem; }
