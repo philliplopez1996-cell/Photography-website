@@ -319,13 +319,16 @@ ul { list-style: none; }
   gap: 5rem;
   align-items: center;
 }
-.bio-image-placeholder {
-  aspect-ratio: 3/4;
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+.bio-photo {
   width: 100%;
   max-width: 380px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: block;
+  filter: grayscale(8%) contrast(1.04);
 }
 .bio-image-wrap { display: flex; justify-content: center; }
 
