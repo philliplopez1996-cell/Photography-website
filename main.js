@@ -9,12 +9,13 @@ function handleSubmit(e) {
   setTimeout(() => { success.hidden = true; }, 5000);
 }
 
-// ── Nav shadow on scroll ──────────────────────────────────────
-const nav = document.querySelector('.nav');
+// ── Nav shadow on scroll + hero parallax ─────────────────────
+const nav    = document.querySelector('.nav');
+const heroBg = document.querySelector('.hero-bg');
 window.addEventListener('scroll', () => {
-  nav.style.boxShadow = window.scrollY > 10
-    ? '0 2px 24px rgba(0,0,0,0.4)'
-    : 'none';
+  const y = window.scrollY;
+  nav.style.boxShadow = y > 10 ? '0 2px 24px rgba(0,0,0,0.4)' : 'none';
+  if (heroBg) heroBg.style.transform = `translateY(${y * 0.28}px)`;
 }, { passive: true });
 
 // ── Hamburger / mobile overlay ────────────────────────────────
