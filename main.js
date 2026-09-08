@@ -87,10 +87,8 @@ function showPhoto(idx) {
 function stepPreview(dir) { showPhoto(previewIdx + dir); }
 
 function openPreview(card) {
-  const title  = card.querySelector('.collection-info h3').textContent;
-  const thumbs = card.querySelectorAll('.preview-thumb[data-src]');
-  previewPhotos = Array.from(thumbs).map(t => t.dataset.src);
-
+  const title = card.querySelector('.collection-info h3').textContent;
+  previewPhotos = JSON.parse(card.dataset.photos || '[]');
   previewTitle.textContent = title;
 
   if (previewPhotos.length === 0) {
@@ -122,17 +120,6 @@ function closePreview() {
 // Preview button opens modal
 document.querySelectorAll('.preview-btn').forEach(btn => {
   btn.addEventListener('click', () => openPreview(btn.closest('.collection-card')));
-});
-
-// Clicking a thumbnail opens modal at that photo
-document.querySelectorAll('.preview-thumb[data-src]').forEach(thumb => {
-  thumb.addEventListener('click', () => {
-    const card = thumb.closest('.collection-card');
-    openPreview(card);
-    const srcs = Array.from(card.querySelectorAll('.preview-thumb[data-src]')).map(t => t.dataset.src);
-    const idx  = srcs.indexOf(thumb.dataset.src);
-    if (idx >= 0) showPhoto(idx);
-  });
 });
 
 previewClose.addEventListener('click', closePreview);
