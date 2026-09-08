@@ -1,8 +1,5 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ── Background scroll-zoom ────────────────────────────────────
-const siteBg = document.getElementById('site-bg');
-
 // ── Contact form ──────────────────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();
@@ -19,10 +16,6 @@ window.addEventListener('scroll', () => {
   const y = window.scrollY;
   nav.style.boxShadow = y > 10 ? '0 2px 24px rgba(0,0,0,0.4)' : 'none';
   if (heroBg) heroBg.style.transform = `translateY(${y * 0.28}px)`;
-  if (siteBg) {
-    const scale = 1 + y * 0.00018;
-    siteBg.style.transform = `scale(${scale})`;
-  }
 }, { passive: true });
 
 // ── Hamburger / mobile overlay ────────────────────────────────
