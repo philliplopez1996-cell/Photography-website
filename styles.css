@@ -233,7 +233,7 @@ ul { list-style: none; }
   gap: 12px;
 }
 .gallery-item {
-  background: var(--bg-card);
+  background: var(--bg-card) center / cover no-repeat;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   transition: border-color 0.2s;
