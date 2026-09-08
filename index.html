@@ -86,39 +86,100 @@
       <div class="collections-top-inner">
         <p class="section-label reveal">OpenSea</p>
         <h2 class="reveal" style="transition-delay:.1s">Digital Collections</h2>
-        <p class="collections-desc reveal" style="transition-delay:.2s">Three distinct projects where photography meets the digital frontier.</p>
+        <p class="collections-desc reveal" style="transition-delay:.2s">Three distinct series where photography meets the digital frontier.</p>
       </div>
     </div>
     <div class="collections-bottom">
       <div class="collections-grid">
+
+        <!-- Vol. 1 -->
         <div class="collection-card reveal">
-          <div class="collection-img-placeholder"></div>
+          <div class="collection-preview-grid">
+            <div class="preview-thumb" data-src="gallery-01-bridge.jpg"     style="background-image:url('gallery-01-bridge.jpg')"></div>
+            <div class="preview-thumb" data-src="gallery-02-skyline.jpg"    style="background-image:url('gallery-02-skyline.jpg')"></div>
+            <div class="preview-thumb" data-src="gallery-03-trains-blue.jpg" style="background-image:url('gallery-03-trains-blue.jpg')"></div>
+            <div class="preview-thumb" data-src="gallery-04-building.jpg"   style="background-image:url('gallery-04-building.jpg')"></div>
+            <div class="preview-thumb" data-src="gallery-05-tracks.jpg"     style="background-image:url('gallery-05-tracks.jpg')"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+          </div>
           <div class="collection-info">
-            <h3>HiighPhill</h3>
-            <p>A curated series of digital works — drone, phone, and digital camera perspectives.</p>
-            <a href="https://opensea.io/collection/hiighphill" target="_blank" rel="noopener" class="btn btn-primary">View Collection</a>
+            <h3>Vol. 1</h3>
+            <p>The first chapter — drone, phone, and digital camera perspectives capturing light, motion, and the world in between.</p>
+            <div class="collection-actions">
+              <button class="btn btn-primary preview-btn">Preview</button>
+              <a href="https://opensea.io/collection/hiighphill" target="_blank" rel="noopener" class="collection-link">View Full Collection &#8594;</a>
+            </div>
           </div>
         </div>
+
+        <!-- Based Atlanta Photography -->
         <div class="collection-card reveal" style="transition-delay:.12s">
-          <div class="collection-img-placeholder"></div>
+          <div class="collection-preview-grid">
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+          </div>
           <div class="collection-info">
-            <h3>Collection II</h3>
-            <p>Add your second OpenSea collection link here.</p>
-            <a href="https://opensea.io/hiighphill" target="_blank" rel="noopener" class="btn btn-outline">View on OpenSea</a>
+            <h3>Based Atlanta Photography</h3>
+            <p>Atlanta through an elevated lens — the city's skyline, streets, and stories told in light and shadow.</p>
+            <div class="collection-actions">
+              <button class="btn btn-primary preview-btn">Preview</button>
+              <a href="https://opensea.io/hiighphill" target="_blank" rel="noopener" class="collection-link">View Full Collection &#8594;</a>
+            </div>
           </div>
         </div>
+
+        <!-- Vol. 2 -->
         <div class="collection-card reveal" style="transition-delay:.24s">
-          <div class="collection-img-placeholder"></div>
+          <div class="collection-preview-grid">
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+            <div class="preview-thumb preview-placeholder"></div>
+          </div>
           <div class="collection-info">
-            <h3>Collection III</h3>
-            <p>Add your third OpenSea collection link here.</p>
-            <a href="https://opensea.io/hiighphill" target="_blank" rel="noopener" class="btn btn-outline">View on OpenSea</a>
+            <h3>Vol. 2</h3>
+            <p>The next chapter — new perspectives, new moments, continuing the visual story forward.</p>
+            <div class="collection-actions">
+              <button class="btn btn-primary preview-btn">Preview</button>
+              <a href="https://opensea.io/hiighphill" target="_blank" rel="noopener" class="collection-link">View Full Collection &#8594;</a>
+            </div>
           </div>
         </div>
+
       </div>
       <p class="collections-swipe-hint">Swipe to explore &rarr;</p>
     </div>
   </section>
+
+  <!-- PREVIEW MODAL -->
+  <div class="preview-modal" id="preview-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="preview-modal-title">
+    <div class="preview-modal-backdrop" id="preview-modal-backdrop"></div>
+    <div class="preview-modal-content">
+      <div class="preview-modal-header">
+        <h4 class="preview-modal-title" id="preview-modal-title"></h4>
+        <button class="preview-modal-close" id="preview-modal-close" aria-label="Close preview">&#x2715;</button>
+      </div>
+      <div class="preview-modal-stage">
+        <button class="preview-nav prev" id="preview-prev" aria-label="Previous photo">&#8249;</button>
+        <img class="preview-modal-img" id="preview-modal-img" src="" alt="Collection preview" />
+        <p class="preview-modal-coming-soon" id="preview-coming-soon" hidden>Photos coming soon.</p>
+        <button class="preview-nav next" id="preview-next" aria-label="Next photo">&#8250;</button>
+      </div>
+      <p class="preview-modal-counter" id="preview-modal-counter"></p>
+    </div>
+  </div>
 
   <!-- BIO -->
   <section class="bio" id="bio">

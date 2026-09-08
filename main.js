@@ -30,7 +30,6 @@ function openMenu() {
   hamburger.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
 }
-
 function closeMenu() {
   overlay.classList.remove('is-open');
   overlay.setAttribute('aria-hidden', 'true');
@@ -42,10 +41,15 @@ function closeMenu() {
 hamburger.addEventListener('click', openMenu);
 closeBtn.addEventListener('click', closeMenu);
 overlayLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-// Close on Escape
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeMenu();
+  if (e.key === 'Escape') {
+    if (overlay.classList.contains('is-open')) closeMenu();
+    if (previewModal.classList.contains('is-open')) closePreview();
+  }
+  if (previewModal.classList.contains('is-open')) {
+    if (e.key === 'ArrowLeft')  stepPreview(-1);
+    if (e.key === 'ArrowRight') stepPreview(1);
+  }
 });
 
 // ── Scroll reveal (IntersectionObserver) ─────────────────────
@@ -59,3 +63,79 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── Collection preview modal ──────────────────────────────────
+const previewModal    = document.getElementById('preview-modal');
+const previewImg      = document.getElementById('preview-modal-img');
+const previewTitle    = document.getElementById('preview-modal-title');
+const previewCounter  = document.getElementById('preview-modal-counter');
+const previewClose    = document.getElementById('preview-modal-close');
+const previewBackdrop = document.getElementById('preview-modal-backdrop');
+const previewPrev     = document.getElementById('preview-prev');
+const previewNext     = document.getElementById('preview-next');
+const previewSoon     = document.getElementById('preview-coming-soon');
+
+let previewPhotos = [];
+let previewIdx    = 0;
+
+function showPhoto(idx) {
+  previewIdx = ((idx % previewPhotos.length) + previewPhotos.length) % previewPhotos.length;
+  previewImg.src = previewPhotos[previewIdx];
+  previewCounter.textContent = `${previewIdx + 1} / ${previewPhotos.length}`;
+}
+
+function stepPreview(dir) { showPhoto(previewIdx + dir); }
+
+function openPreview(card) {
+  const title  = card.querySelector('.collection-info h3').textContent;
+  const thumbs = card.querySelectorAll('.preview-thumb[data-src]');
+  previewPhotos = Array.from(thumbs).map(t => t.dataset.src);
+
+  previewTitle.textContent = title;
+
+  if (previewPhotos.length === 0) {
+    previewImg.hidden   = true;
+    previewSoon.hidden  = false;
+    previewPrev.hidden  = true;
+    previewNext.hidden  = true;
+    previewCounter.textContent = '';
+  } else {
+    previewImg.hidden   = false;
+    previewSoon.hidden  = true;
+    previewPrev.hidden  = false;
+    previewNext.hidden  = false;
+    showPhoto(0);
+  }
+
+  previewModal.classList.add('is-open');
+  previewModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePreview() {
+  previewModal.classList.remove('is-open');
+  previewModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  previewImg.src = '';
+}
+
+// Preview button opens modal
+document.querySelectorAll('.preview-btn').forEach(btn => {
+  btn.addEventListener('click', () => openPreview(btn.closest('.collection-card')));
+});
+
+// Clicking a thumbnail opens modal at that photo
+document.querySelectorAll('.preview-thumb[data-src]').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    const card = thumb.closest('.collection-card');
+    openPreview(card);
+    const srcs = Array.from(card.querySelectorAll('.preview-thumb[data-src]')).map(t => t.dataset.src);
+    const idx  = srcs.indexOf(thumb.dataset.src);
+    if (idx >= 0) showPhoto(idx);
+  });
+});
+
+previewClose.addEventListener('click', closePreview);
+previewBackdrop.addEventListener('click', closePreview);
+previewPrev.addEventListener('click', () => stepPreview(-1));
+previewNext.addEventListener('click', () => stepPreview(1));
